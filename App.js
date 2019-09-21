@@ -6,6 +6,7 @@ import axios from "axios";
 import Weather from "./Weather";
 import PropTypes from "prop-types";
 
+
 const API_KEY = "b4c94da925bbc0914b1ffa294a6a446b";
 
 export default class extends React.Component{
@@ -27,11 +28,10 @@ export default class extends React.Component{
   };
   getLocation = async() => {
     try {
-    
       await Location.requestPermissionsAsync();
       const {coords: {latitude, longitude}} = await Location.getCurrentPositionAsync();
-      this.setState({isLoading: false});
-      this.getWeather(latitude, longitude)
+      //this.setState({isLoading: false});
+      this.getWeather(latitude, longitude);
      
     } catch (error) {
       Alert.alert("CAN'T FINT YOU");
@@ -47,7 +47,7 @@ export default class extends React.Component{
 
   render(){
     const { isLoading, temp, condition } = this.state
-  return isLoading ? <Loading /> : <Weather temp={Math.round(temp)} condition={condition}/>;
+  return isLoading ? (<Loading />) : (<Weather temp={Math.round(temp)} condition={condition}/>);
 }
 }
 
