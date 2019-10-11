@@ -9,7 +9,7 @@ const weatherOptions = {
         iconName: "weather-lightning",
         gradient: ["#373B44", "#4286f4"],
         title: "Thunderstorm in the house",
-        subtitle: "Actually, outside of the house"
+        subtitle: "Actually, outside of the house."
       },
       Drizzle: {
         iconName: "weather-hail",
@@ -19,15 +19,15 @@ const weatherOptions = {
       },
       Rain: {
         iconName: "weather-rainy",
-        gradient: ["#00C6FB", "#005BEA"],
+        gradient: ["#bdc3c7", "#2c3e50"],
         title: "Raining",
-        subtitle: "For more info look outside"
+        subtitle: "For more info look outside."
       },
       Snow: {
-        iconName: "weather-snowy",
+        iconName: "weather-pouring",
         gradient: ["#7DE2FC", "#B9B6E5"],
-        title: "Cold as balls",
-        subtitle: "Do you want to build a snowman?"
+        title: "Snow",
+        subtitle: "Do you want to build a snowman? ⛄️"
       },
       Atmosphere: {
         iconName: "weather-hail",
@@ -35,9 +35,9 @@ const weatherOptions = {
       },
       Clear: {
         iconName: "weather-sunny",
-        gradient: ["#FF7300", "#FEF253"],
-        title: "Sunny as fuck",
-        subtitle: "Go outside!"
+        gradient: ["#56ccf2", "#2f80ed"],
+        title: "Sunny",
+        subtitle: "Go outside and enjoy!"
       },
       Clouds: {
         iconName: "weather-cloudy",
@@ -46,19 +46,19 @@ const weatherOptions = {
         subtitle: "So cloudy"
       },
       Mist: {
-        iconName: "weather-hail",
-        gradient: ["#4DA0B0", "#D39D38"],
-        title: "Mist!",
+        iconName: "weather-partlycloudy",
+        gradient: ["#135058", "#F1F2B5"],
+        title: "Mist",
         subtitle: "It's like you have no glasses on."
       },
       Dust: {
-        iconName: "weather-hail",
-        gradient: ["#4DA0B0", "#D39D38"],
+        iconName: "weather-fog",
+        gradient: ["#eacda3", "#d6ae7b"],
         title: "Dusty",
         subtitle: "Wear a mask.😷"
       },
       Haze: {
-        iconName: "weather-hail",
+        iconName: "weather-fog",
         gradient: ["#4DA0B0", "#D39D38"],
         title: "Haze",
         subtitle: "Just don't go outside."
@@ -68,13 +68,13 @@ const weatherOptions = {
 export default function Weather({ temp, condition }){
     return (
         <LinearGradient
-          colors={weatherOptions["Haze"].gradient}
+          colors={weatherOptions[condition].gradient}
           style={styles.container}>     
               <StatusBar barStyle="light-content" />
         <View style={styles.halfcontainer}>
             <MaterialCommunityIcons 
             size={95} 
-            name={weatherOptions["Haze"].iconName || "weather-sunset"} 
+            name={weatherOptions[condition].iconName}
             color="white">
             </MaterialCommunityIcons>
             <Text style={styles.temp}>{temp}º</Text>
